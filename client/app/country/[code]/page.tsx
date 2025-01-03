@@ -32,7 +32,7 @@ export default function CountryPage() {
     const fetchCountryData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/countries/${code}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/countries/${code}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch country data");
