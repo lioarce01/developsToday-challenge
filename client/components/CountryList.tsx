@@ -24,7 +24,7 @@ export default function CountryList() {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch(`${API_URL}`);
+        const response = await fetch(`${API_URL}/api/countries`);
         if (!response.ok) {
           throw new Error("Failed to fetch countries");
         }
