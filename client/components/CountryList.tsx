@@ -19,12 +19,12 @@ export default function CountryList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/countries`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/countries`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch countries");
         }
@@ -39,7 +39,7 @@ export default function CountryList() {
     };
 
     fetchCountries();
-  }, [API_URL]);
+  }, []);
 
   const filteredCountries = countries.filter((country) =>
     country.name.toLowerCase().includes(searchQuery.toLowerCase())
